@@ -1,15 +1,14 @@
 import React from 'react'
 
-export const WordTable = ({element, element:{position, word, occurrences}}) => {
+export const WordTable = ({element: { word, position, occurrences }}) => {
+ 
   return (
     <>
-       <tr key={element}>
-        <td>{position}</td>
-        <td>'{word}'</td>
-        <td>{occurrences}</td>
-        <td>Ver texto</td>
-        <td>Editar</td>
-       </tr>
+           <tr>
+           <td>{position}</td>
+           <td>'{word}'</td>
+           <td>{occurrences}</td>
+          </tr> 
     </>
   )
 }

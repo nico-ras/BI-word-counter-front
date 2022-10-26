@@ -17,11 +17,11 @@ export const WordCounterApp = () => {
     });
   };
 
-  const { data, isLoading, hasError, getFetch, result } = useFetch(
-    `http://localhost:8080/generator/word-counter/text?id=1&&page=${textId}`
+  const { data, isLoading, hasError, getFetch, } = useFetch(
+    'http://localhost:3001/word-count-ranking', textId
   );
 
-
+console.log(data)
   return (
     <div className="app">
       <h1>WordCounterApp</h1>
@@ -31,8 +31,8 @@ export const WordCounterApp = () => {
         onInputChange={onInputChange}
         getFetch={getFetch}
       />
-
-      <RankingResults result={result} />
+      { data && <RankingResults result={data} />}
+      
     </div>
   );
 };

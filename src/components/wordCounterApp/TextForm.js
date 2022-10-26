@@ -12,7 +12,7 @@ export const TextForm = ({ textId, onInputChange, getFetch }) => {
           className="idInput"
           type="number"
           name="textId"
-          placeholder="ID de texto"
+          placeholder="ID"
           value={textId}
           onChange={onInputChange}
         />

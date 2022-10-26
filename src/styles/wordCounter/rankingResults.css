@@ -2,3 +2,18 @@
     color: #003669;
     font-weight: bold;
 }
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);   
+}
+
+table tr th {
+    background-color: #003669;
+    color: #ffffff;
+    text-align: center;
+}
