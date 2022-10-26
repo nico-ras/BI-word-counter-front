@@ -1,0 +1,15 @@
+.app {
+    margin: auto;
+    margin-top: 4em;
+    width: 40em;
+    display: inline-block;
+    padding-bottom: 2em;
+    border: solid 1px #D3D3D3;
+    border-radius: 0.5em;
+    background-color: #FFFFFF;
+}
+
+h1 {
+    color: #001A72;
+    font-size: 3rem;
+}
