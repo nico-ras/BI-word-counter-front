@@ -24,7 +24,7 @@ export const WordCounterApp = () => {
 console.log(data)
   return (
     <div className="app">
-      <h1>WordCounterApp</h1>
+      <h1 className="wcaTitle">WordCounterApp</h1>
 
       <TextForm
         textId={textId}

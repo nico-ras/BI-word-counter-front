@@ -1,0 +1,25 @@
+label, input {
+    display: block;
+    width: 100%;
+}
+
+input {
+    height: 2em;
+    border-radius: 5px;
+}
+
+label {
+    width: fit-content;
+    padding-right: auto;
+    margin-top: 2em;
+}
+
+.taskDiv, .hoursDiv {
+    display: block;
+    margin: auto;
+    width: 15em;
+}
+
+.regBtn {
+    margin: 2em;
+}

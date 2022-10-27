@@ -1,0 +1,32 @@
+.sTitle {
+    color: white;
+}
+
+.formDiv {
+    background-color: white;
+    width: 50em;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+h3 {
+    padding-top: 1em;
+    color: #003669;
+    font-size: x-large;
+}
+
+.tableDiv {
+    margin-top: 5em;
+    background-color: white;
+    padding-bottom: 1em;
+}
+
+.calcBtn {
+    margin-top: 2em;
+}
+
+.pDisclaimer {
+    color: grey;
+    font-size: small;
+    display: block;
+}
