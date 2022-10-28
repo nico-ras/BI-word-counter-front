@@ -14,7 +14,7 @@ export const TableComponent = ({ tasks, onEdit, onDelete }) => {
         </tr>
       </thead>
       <tbody>
-        {tasks && tasks.map((task) => <TaskRows task={ task } onEdit={ onEdit } onDelete={ onDelete } key={task.id} />)}
+        {tasks && tasks.map((task) => <TaskRows taskItem={ task } onEdit={ onEdit } onDelete={ onDelete } key={task.id} />)}
       </tbody>
     </table>
   );

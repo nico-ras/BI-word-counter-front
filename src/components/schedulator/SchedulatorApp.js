@@ -6,7 +6,11 @@ import { TableComponent } from "./TableComponent";
 
 export const SchedulatorApp = () => {
   const { tasks, handleNewTask, handleEditTask, handleDeleteTask } = useTasks();
-  console.log(tasks);
+
+  const show = () => {
+    console.log(tasks)
+  }
+  
   return (
     <>
       <h1 className="sTitle">Organizador de tareas diarias</h1>
@@ -20,7 +24,7 @@ export const SchedulatorApp = () => {
           <div className="tableDiv">
             <h3>Tareas por realizar: </h3>
             <TableComponent tasks={ tasks } onEdit={ handleEditTask }  onDelete={ handleDeleteTask } />
-            <button className="calcBtn">Calcular jornada</button>
+            <button className="calcBtn" onClick={ () => show() }>Calcular jornada</button>
             <p className="pDisclaimer">* en base a la jornada laboral de 8 horas</p>
           </div>
         )}

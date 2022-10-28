@@ -25,7 +25,7 @@ export const useFetch = (url, id) => {
     const { response } = await resp.json();
     const data = await response
     
-    console.log()
+    
     setState({
       data,
       isLoading: false,

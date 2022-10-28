@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/schedulator/taskRow.css';
+import { EditRow } from './EditRow';
+import { ShowRow } from './ShowRow';
 
-export const TaskRows = ({task: { hours, id, task }, onEdit, onDelete}) => {
+export const TaskRows = ({ taskItem ,taskItem: { hours, id, task }, onEdit, onDelete}) => {
+
+    const [row, setRow] = useState({editable: false})
+
+    const edit = () => {
+        setRow({
+            editable: !row.editable,
+        })
+    }
+    
   return (
     <>
-           <tr>
-           <td>{id}</td>
-           <td>'{task}'</td>
-           <td>{hours}</td>
-           <td><button onClick={ () => onEdit() } className='editBtn'>Editar</button></td>
-           <td><button onClick={ () => onDelete() } className='deleteBtn'>Borrar</button></td>
-          </tr> 
+        <tr>
+        { row.editable ? 
+        <EditRow id={ id } initHours={ hours } initTask={ task } onEdit={ onEdit } edit={ edit } /> : 
+        <ShowRow id={ id } hours={ hours } task={ task } edit={ edit } onDelete={ onDelete }/> }
+        </tr> 
     </>
   )
 }
