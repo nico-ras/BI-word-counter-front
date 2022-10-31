@@ -30,3 +30,7 @@ h3 {
     font-size: small;
     display: block;
 }
+
+.randBtn {
+    margin: 2em;
+}
