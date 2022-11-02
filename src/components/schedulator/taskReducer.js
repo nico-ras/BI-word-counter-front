@@ -6,10 +6,10 @@ export const taskReducer = ( initialState = [], action ) => {
             return [ ...initialState, action.payload ];
 
         case '[TASK] Edit Task':
-            return initialState.map( task => task.id == action.payload.id ? action.payload : task );
+            return initialState.map( task => task.task_id == action.payload.task_id ? action.payload : task );
             
         case '[TASK] Delete Task':
-            return initialState.filter( task => task.id !== action.payload );    
+            return initialState.filter( task => task.task_id !== action.payload );    
 
         default:
             return initialState;

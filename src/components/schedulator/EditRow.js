@@ -1,20 +1,20 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm'
 
-export const EditRow = ({ id, initTask, initHours, onEdit, edit }) => {
+export const EditRow = ({ task_id, initTask, initHours, onEdit, edit }) => {
 
-    const {task, hours, onInputChange } = useForm({id, initTask, initHours});
+    const {task_name, duration, onInputChange } = useForm({task_id, initTask, initHours});
 
     const confirmEdit = () => {
-        onEdit({id, task, hours});
+        onEdit({task_id, task_name, duration});
         edit();
     }
 
   return (
     <>
-      <td>{id}</td>
-      <td><input name='task' placeholder={initTask} value={task} onChange={ onInputChange } /></td>
-      <td><input name='hours' placeholder={initHours} value={hours} onChange={ onInputChange } /></td>
+      <td>{task_id}</td>
+      <td><input name='task_name' placeholder={initTask} value={task_name} onChange={ onInputChange } /></td>
+      <td><input name='duration' placeholder={initHours} value={duration} onChange={ onInputChange } /></td>
       <td><button onClick={ () =>  confirmEdit() } className='editBtn'>Hecho!</button></td>
       <td>-</td>
     </>

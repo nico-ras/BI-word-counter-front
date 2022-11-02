@@ -22,8 +22,8 @@ export const useForm = (initialForm = {}) => {
   return {
     ...formState,
     formState,
-    task: formState.task,
-    hours: formState.hours,
+    task_name: formState.task_name,
+    duration: formState.duration,
     onInputChange,
     onResetForm,
   }

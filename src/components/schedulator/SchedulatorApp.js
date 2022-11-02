@@ -4,6 +4,7 @@ import "../../styles/schedulator/schedulatorApp.css";
 import { useTasks } from "../../hooks/useTasks";
 import { TableComponent } from "./TableComponent";
 import { useSchedule } from "../../hooks/useSchedule";
+import { ResultTable } from "./ResultTable";
 
 export const SchedulatorApp = () => {
   const { tasks, handleNewTask, handleEditTask, handleDeleteTask } = useTasks();
@@ -14,9 +15,9 @@ export const SchedulatorApp = () => {
     console.log(tasks) //TODO fetch post a back para traer schedule segun parametros enviados
   }
 
-  useEffect(() => {
-    console.log(schedule);
-  }, [schedule])
+  // useEffect(() => {
+  //   console.log(schedule);
+  // }, [schedule])
   
 
   
@@ -45,7 +46,7 @@ export const SchedulatorApp = () => {
         }
         { schedule.data &&
         <div>
-          //Results
+          <ResultTable schedule={schedule.data} />
         </div> 
         }
       </div>

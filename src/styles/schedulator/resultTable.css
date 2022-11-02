@@ -1,0 +1,14 @@
+.resultDiv {
+    background-color: white;
+    width: 50em;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.cards {
+    display: flex;
+   justify-content: space-between;
+   padding: 1em;
+   align-items: stretch;
+   flex-wrap: wrap;
+}

@@ -6,20 +6,20 @@ import '../../styles/schedulator/schedulatorForm.css';
 export const SchedulatorForm = ({ handleNewTask }) => {
 
 
-  const { task, hours, onInputChange, onResetForm } = useForm({
-    task: '',
-    hours: '',
+  const { task_name, duration, onInputChange, onResetForm } = useForm({
+    task_name: '',
+    duration: '',
   });
 
 
 
   const onFormSubmit = (e) => {
         e.preventDefault();
-        if (task.length <= 1 ) return;
+        if (task_name.length <= 1 ) return;
         const newTask = {
-          id: new Date().getTime(),
-          task,
-          hours,
+          task_id: new Date().getTime(),
+          task_name,
+          duration,
         }
 
         handleNewTask(newTask);
@@ -30,12 +30,12 @@ export const SchedulatorForm = ({ handleNewTask }) => {
   return (
     <form onSubmit={ onFormSubmit }>
       <div className="taskDiv">
-        <label htmlFor="task">Tarea por realizar: </label>
-        <input name="task" type="text" placeholder="Organizar mi..." value={task} onChange={ onInputChange } />
+        <label htmlFor="task_name">Tarea por realizar: </label>
+        <input name="task_name" type="text" placeholder="Organizar mi..." value={task_name} onChange={ onInputChange } />
       </div>
       <div className="hoursDiv">
-        <label htmlFor="hours">Duracion de la tarea: </label>
-        <input name="hours" type="number" placeholder="numero de horas" value={hours} onChange={ onInputChange }/>
+        <label htmlFor="duration">Duracion de la tarea: </label>
+        <input name="duration" type="number" placeholder="numero de horas" value={duration} onChange={ onInputChange }/>
       </div>
       <button className="regBtn">Registrar</button>
     </form>

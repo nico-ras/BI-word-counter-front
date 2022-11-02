@@ -1,13 +1,13 @@
 import React from 'react'
 
-export const ShowRow = ({ id, task, hours, edit, onDelete }) => {
+export const ShowRow = ({ task_id, task_name, duration, edit, onDelete }) => {
   return (
     <>
-      <td>{id}</td>
-      <td>'{task}'</td>
-      <td>{hours}</td>
+      <td>{task_id}</td>
+      <td>'{task_name}'</td>
+      <td>{duration}</td>
       <td><button onClick={ () =>  edit() } className='editBtn'>Editar</button></td>
-      <td><button onClick={ () => onDelete(id) } className='deleteBtn'>Borrar</button></td>
+      <td><button onClick={ () => onDelete(task_id) } className='deleteBtn'>Borrar</button></td>
     </>
   )
 }

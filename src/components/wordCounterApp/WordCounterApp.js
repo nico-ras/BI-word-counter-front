@@ -21,7 +21,7 @@ export const WordCounterApp = () => {
     'http://localhost:3001/word-count-ranking', textId
   );
 
-console.log(data)
+
   return (
     <div className="app">
       <h1 className="wcaTitle">WordCounterApp</h1>
