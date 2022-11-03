@@ -4,7 +4,7 @@ export const Text = ({ text }) => {
   return (
     <div>
       <h4>Texto analizado: </h4>
-      <p>{text}</p>
+      <p data-testid='test-text'>{text}</p>
     </div>
   );
 };

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en componente <Text /> Debe ser como la captura 1`] = `
+<div>
+  <div>
+    <h4>
+      Texto analizado: 
+    </h4>
+    <p
+      data-testid="test-text"
+    >
+      ES UN TEST
+    </p>
+  </div>
+</div>
+`;

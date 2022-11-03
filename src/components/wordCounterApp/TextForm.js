@@ -10,6 +10,7 @@ export const TextForm = ({ textId, onInputChange, getFetch }) => {
       <form>
         <input
           className="idInput"
+          data-testid="inputId"
           type="number"
           name="textId"
           placeholder="ID"
