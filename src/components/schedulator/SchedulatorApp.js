@@ -9,11 +9,7 @@ import { ResultTable } from "./ResultTable";
 export const SchedulatorApp = () => {
   const { tasks, handleNewTask, handleEditTask, handleDeleteTask } = useTasks();
 
-  const { schedule, handleGetRandSchedule, handleGetSchedule } = useSchedule({});
- 
-  const show = () => {
-    console.log(tasks) //TODO fetch post a back para traer schedule segun parametros enviados
-  }
+  const { schedule, handleGetRandSchedule, handleMySchedule } = useSchedule({});
 
   // useEffect(() => {
   //   console.log(schedule);
@@ -35,7 +31,7 @@ export const SchedulatorApp = () => {
           <div className="tableDiv">
             <h3>Tareas por realizar: </h3>
             <TableComponent tasks={ tasks } onEdit={ handleEditTask }  onDelete={ handleDeleteTask } />
-            <button className="calcBtn" onClick={ () => show() }>Calcular jornada</button>
+            <button className="calcBtn" onClick={ () => handleMySchedule(tasks) }>Calcular jornada</button>
             <p className="pDisclaimer">* en base a la jornada laboral de 8 horas</p>
           </div>
         ) : 

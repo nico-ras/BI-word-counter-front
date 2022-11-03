@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 
-export const useForm = (initialForm = {}) => {
+export const useForm = (initialForm) => {
 
     const [formState, setFormState] = useState(initialForm);
+
+    const onSetFormState = (editableState) => {
+      setFormState(editableState)
+    }
 
     const onInputChange = ({ target }) => {
       const { name, value } = target;
@@ -26,5 +30,6 @@ export const useForm = (initialForm = {}) => {
     duration: formState.duration,
     onInputChange,
     onResetForm,
+    onSetFormState,
   }
 }
