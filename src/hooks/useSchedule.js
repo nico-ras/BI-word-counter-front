@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { postFetch } from "../helpers/postFetch"; 
+import { dataFormater } from "../helpers/dataFormater";
+import { fetchData } from "../helpers/fetchData"; 
  
 export const useSchedule = (initialState = {}) => {
   const [schedule, setSchedule] = useState({ data: null });
 
   const handleGetRandSchedule = async () => {
+    
     const url = "http://localhost:3001/schedulator";
 
-    const resp = await fetch(url);
-    const { response } = await resp.json();
+    const response = await fetchData(url);
+
 
     setSchedule({
       ...schedule,
@@ -17,9 +19,13 @@ export const useSchedule = (initialState = {}) => {
   };
 
   const handleMySchedule = async (tasks) => {
+
     const url = 'http://localhost:3001/custom-tasks-schedulator';
 
-    const response = await postFetch(url, tasks);
+    const data = dataFormater(tasks);
+  
+    const response = await fetchData( url, "POST", data);
+
     
     setSchedule({
       ...schedule,

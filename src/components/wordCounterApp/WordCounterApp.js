@@ -17,9 +17,7 @@ export const WordCounterApp = () => {
     });
   };
 
-  const { data, isLoading, hasError, getFetch, } = useFetch(
-    'http://localhost:3001/word-count-ranking', textId
-  );
+  const { data, isLoading, hasError, getFetch, } = useFetch( textId );
 
 
   return (

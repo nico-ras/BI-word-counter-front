@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { fetchData } from "../helpers/fetchData";
 
 
-export const useFetch = (url, id) => {
+
+export const useFetch = (id) => {
   const [state, setState] = useState({
     data: null,
     isLoading: true,
@@ -15,15 +17,9 @@ export const useFetch = (url, id) => {
       isLoading: true,
     });
 
-    
-    const resp = await fetch(url, { method: 'POST', headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({id})});
-
-    const { response } = await resp.json();
-    const data = await response
+    const url = 'http://localhost:3001/word-count-ranking';
+    const idObj = {id};
+    const data = await fetchData( url, 'POST', idObj);
     
     
     setState({
