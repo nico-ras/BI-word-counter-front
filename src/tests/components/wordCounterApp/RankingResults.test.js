@@ -6,53 +6,39 @@ describe('Pruebas en el componente <RankingResults />', () => {
     
 
    beforeEach( () => {
-       
+    let result =  {
+        id: 1, 
+        title: 'Titulo de prueba', 
+        ranking: [
+           { 
+               word: 'Palabra de prueba', 
+               position: 1, 
+               occurrences: 3 
+           }
+       ], 
+        text: 'Texto de prueba' } ;
+
+    render(<RankingResults result={result} />);   
    })
 
     test('Debe coincidir con la captura', () => { 
 
-        const result =  {
-            id: 1, 
-            title: 'Titulo de prueba', 
-            ranking: [
-               { 
-                   word: 'Palabra de prueba', 
-                   position: 1, 
-                   occurrences: 3 
-               }
-           ], 
-            text: 'Texto de prueba' } ;
-
-        render(<RankingResults result={result} />);    
+         
 
         expect( screen ).toMatchSnapshot();
 
 
      })
 
-     test('Debe entregar al componente hijo el resultado', () => { 
+     test('Debe entregar al componente hijo el resultado en una fila', () => { 
 
-        const result =  {
-            id: 1, 
-            title: 'Titulo de prueba', 
-            ranking: [
-               { 
-                   word: 'Palabra de prueba', 
-                   position: 1, 
-                   occurrences: 3 
-               }
-           ], 
-            text: 'Texto de prueba' } ;
-
-        render(<RankingResults result={result} />); 
-
-        // TODO ---->>  expect( screen )
+        expect( screen.getByRole("row", { name: "1 'Palabra de prueba' 3" }) ).toBeDefined();
 
       })
 
     test('Debe mostrar mensaje de aviso en caso de no encontrar el ID del texto', () => { 
 
-        const result =  {} ;
+        let result =  {} ;
 
         render(<RankingResults result={result} />);
         
