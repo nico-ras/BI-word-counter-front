@@ -32,7 +32,7 @@ export const RankingResults = ({ result }) => {
         </div>
       ) : 
        <div>
-          <h3>Lo sentimos, el numero no coincide con ningún ID !!</h3>
+          <h3 data-testid='notFoundMessage' >Lo sentimos, el numero no coincide con ningún ID !!</h3>
        </div>
       }
     </>
