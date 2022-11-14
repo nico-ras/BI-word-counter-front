@@ -28,7 +28,7 @@ export const SchedulatorForm = ({ handleNewTask }) => {
 
 
   return (
-    <form onSubmit={ onFormSubmit }>
+    <form data-testid="regTaskForm" onSubmit={ (e) => onFormSubmit(e) }>
       <div className="taskDiv">
         <label htmlFor="task_name">Tarea por realizar: </label>
         <input name="task_name" type="text" placeholder="Organizar mi..." value={task_name} onChange={ onInputChange } />
