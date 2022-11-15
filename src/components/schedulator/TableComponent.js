@@ -13,7 +13,7 @@ export const TableComponent = ({ tasks, onEdit, onDelete }) => {
           <th>borrar</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody data-testid="taskBodyTable">
         {tasks && tasks.map((task) => <TaskRows taskItem={ task } onEdit={ onEdit } onDelete={ onDelete } key={task.task_id} />)}
       </tbody>
     </table>
