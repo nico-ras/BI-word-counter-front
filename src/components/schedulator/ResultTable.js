@@ -12,7 +12,7 @@ const { dias_termino, hrs_jornada, jornadas } = schedule;
         <h3>Organizacion de tareas</h3>
         <h4>Dias totales para completar las tareas: { dias_termino }</h4>
         <h4>Horas de cada jornada de trabajo: { hrs_jornada } hrs</h4>   
-        <section className='cards'>
+        <section className='cards' data-testid='workingDaySection'>
         {jornadas.map((jornada) => (
           <WorkingDay jornada={ jornada } key={ jornada.id } /> 
         ))}

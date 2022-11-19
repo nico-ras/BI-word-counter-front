@@ -6,7 +6,7 @@ describe("Pruebas en el componente <ShowRow /> de SchedulatorApp", () => {
   const onDelete = jest.fn();
   const task_name = "Nombre de prueba";
 
-  test("Debe coincidir con la captura", () => {
+  beforeEach(() => {
     render(
       <table>
         <tbody>
@@ -22,64 +22,25 @@ describe("Pruebas en el componente <ShowRow /> de SchedulatorApp", () => {
         </tbody>
       </table>
     );
+  });
 
+  test("Debe coincidir con la captura", () => {
     expect(screen).toMatchSnapshot();
   });
 
+  test('Debe llamar a la funcion edit la presionar el boton "Editar" ', () => {
+    const editButon = screen.getByRole("button", { name: "Editar" });
 
-test('Debe llamar a la funcion edit la presionar el boton "Editar" ', () => { 
-
-    render(
-        <table>
-          <tbody>
-            <tr>
-              <ShowRow
-                task_id={1}
-                duration={4}
-                task_name={task_name}
-                edit={edit}
-                onDelete={onDelete}
-              />
-            </tr>
-          </tbody>
-        </table>
-      );
-  
-
-    const editButon = screen.getByRole('button', { name: 'Editar' });
-    
     fireEvent.click(editButon);
 
-    expect( edit ).toBeCalled()
+    expect(edit).toBeCalled();
+  });
 
- })
+  test('Debe llamar a la funcion onDelete la presionar el boton "Borrar" ', () => {
+    const deleteButon = screen.getByRole("button", { name: "Borrar" });
 
- test('Debe llamar a la funcion onDelete la presionar el boton "Borrar" ', () => { 
-
-    render(
-        <table>
-          <tbody>
-            <tr>
-              <ShowRow
-                task_id={1}
-                duration={4}
-                task_name={task_name}
-                edit={edit}
-                onDelete={onDelete}
-              />
-            </tr>
-          </tbody>
-        </table>
-      );
-  
-
-    const deleteButon = screen.getByRole('button', { name: 'Borrar' });
-    
     fireEvent.click(deleteButon);
 
-    expect( onDelete ).toBeCalled()
-
- })
-
-  
+    expect(onDelete).toBeCalled();
+  });
 });

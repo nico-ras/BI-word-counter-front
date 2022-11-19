@@ -1,50 +1,28 @@
-import { render, screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react";
 import { TableComponent } from "../../../components/schedulator/TableComponent";
+import { scheduleFixture } from "../../fixtures/scheduleFixtures";
 
-describe('Pruebas en el componente <TableComponent />', () => { 
+describe("Pruebas en el componente <TableComponent />", () => {
+  const { tareas } = scheduleFixture.jornadas[0];
 
-    test('Debe coincidir con la captura', () => { 
+  const tasks = tareas;
 
-        const tasks = [
-            {
-                task_id: 1, 
-                task_name: 'Tarea 1', 
-                duration: 2,
-            },
-            {
-                task_id: 2, 
-                task_name: 'Tarea 2', 
-                duration: 3,
-            },
-        ];
-        const onEdit = jest.fn();
-        const onDelete = jest.fn(); 
+  const onEdit = jest.fn();
+  const onDelete = jest.fn();
 
-        render(<TableComponent 
-            tasks={tasks} 
-            onEdit={onEdit} 
-            onDelete={onDelete}
-             />);
+  test("Debe coincidir con la captura", () => {
+    render(
+      <TableComponent tasks={tasks} onEdit={onEdit} onDelete={onDelete} />
+    );
 
-        expect( screen ).toMatchSnapshot();     
+    expect(screen).toMatchSnapshot();
+  });
 
-     })
+  test("Sí no hay tareas, no debe renderizar el componente hijo (fila de tareas)", () => {
+    render(<TableComponent onEdit={onEdit} onDelete={onDelete} />);
 
-     test('Sí no hay tareas, no debe renderizar el componente hijo (fila de tareas)', () => { 
+    const tBody = screen.getByTestId("taskBodyTable");
 
-        const onEdit = jest.fn();
-        const onDelete = jest.fn(); 
-
-        render(<TableComponent 
-            onEdit={onEdit} 
-            onDelete={onDelete}
-             />);
-
-            const tBody = screen.getByTestId("taskBodyTable");
-
-            expect( tBody ).toBeEmptyDOMElement(); 
-
-      })
-
-
- })
+    expect(tBody).toBeEmptyDOMElement();
+  });
+});

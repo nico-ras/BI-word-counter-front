@@ -43,21 +43,14 @@ describe("Pruebas en <SchedulatorForm />", () => {
   });
 
   test('Debe, al presionar el boton "Registrar", enviar el formulario invocando a la funcion "handleNewTask"', async () => {
-    
-    
     const task = screen.getByRole("textbox");
     const durationInput = screen.getByRole("spinbutton");
     const registerTaskForm = screen.getByTestId("regTaskForm");
-    
 
-    fireEvent.input(task, {target: { value: 'tarea 2' }});
-    fireEvent.input(durationInput, {target: { value: 2 }});
+    fireEvent.input(task, { target: { value: "tarea 2" } });
+    fireEvent.input(durationInput, { target: { value: 2 } });
     fireEvent.submit(registerTaskForm);
 
-
-    
     expect(handleNewTask).toBeCalled();
-
-    
   });
 });

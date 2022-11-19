@@ -12,8 +12,7 @@ describe("Pruebas en el componente <EditRow />", () => {
   const task_name = "Nombre de prueba";
   const duration = 4;
 
-  beforeEach( () => {
-
+  beforeEach(() => {
     useForm.mockReturnValue({
       task_name,
       duration,
@@ -36,18 +35,13 @@ describe("Pruebas en el componente <EditRow />", () => {
         </tbody>
       </table>
     );
-
-  })
+  });
 
   test("Debe coincidir con la captura", () => {
-    
-
     expect(screen).toMatchSnapshot();
   });
 
   test("Debe llamar a onInputChange 2 veces al modificar inputs de nombre y duracion", () => {
-    
-
     const nameInput = screen.getAllByRole("textbox")[0];
     const durationInput = screen.getAllByRole("textbox")[1];
 
@@ -57,16 +51,12 @@ describe("Pruebas en el componente <EditRow />", () => {
     expect(onInputChange).toHaveBeenCalledTimes(2);
   });
 
-  test('Debe llamar a la funcion edit() y onEdit() al pulsar el boton "Hecho!"', () => { 
+  test('Debe llamar a la funcion edit() y onEdit() al pulsar el boton "Hecho!"', () => {
+    const button = screen.getByRole("button", { name: "Hecho!" });
 
-
-    const button = screen.getByRole('button', { name: 'Hecho!' });
-    
     fireEvent.click(button);
 
-    expect( edit ).toBeCalled();
-    expect( onEdit ).toBeCalled()
-
-   })
-
+    expect(edit).toBeCalled();
+    expect(onEdit).toBeCalled();
+  });
 });

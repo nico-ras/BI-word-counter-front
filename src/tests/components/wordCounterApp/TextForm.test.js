@@ -4,42 +4,37 @@ import { TextForm } from "../../../components/wordCounterApp/TextForm";
 
 // textId, onInputChange, getFetch
 
-describe('Pruebas sobre componente Formulario de contador de palabras', () => {
+describe("Pruebas sobre componente Formulario de contador de palabras", () => {
+  const testData = { id: 1 };
 
-    const testData = { id: 1 };
+  test("Prueba de envio de formulario", () => {
+    const textId = 0;
+    const getFetch = jest.fn();
+    const onInputChange = jest.fn();
 
+    render(
+      <TextForm
+        textId={textId}
+        onInputChange={onInputChange}
+        getFetch={getFetch}
+      />
+    );
 
-    test('Prueba de envio de formulario', () => { 
+    const inputId = screen.getByTestId("inputId");
+    const button = screen.getByRole("button", {
+      name: /ver ranking/i,
+    });
 
-        const textId = 0;
-        const getFetch = jest.fn();
-        const onInputChange = jest.fn();
-        
-        render(
-        <TextForm 
-        textId={textId} 
-        onInputChange={onInputChange} 
-        getFetch={getFetch} 
-        />);
+    //introducimos dato en el campo id
+    userEvent.clear(inputId);
+    fireEvent.change(inputId, { target: { value: 1 } });
 
-        const inputId = screen.getByTestId('inputId');
-        const button = screen.getByRole('button', {
-            name: /ver ranking/i
-        });
+    userEvent.click(button);
 
-        //introducimos dato en el campo id
-        userEvent.clear(inputId);
-        fireEvent.change(inputId, {target: {value: 1}})
-        
-        userEvent.click(button);
+    const returnDataFetch = getFetch.mock.calls[0][0];
+    const returnDataOnChange = onInputChange.mock.calls[0][0];
 
-        const returnDataFetch = getFetch.mock.calls[0][0];
-        const returnDataOnChange = onInputChange.mock.calls[0][0];
-
-
-        expect(getFetch).toBeCalled();
-        expect(onInputChange).toBeCalled();
-
-
-     })
-})
+    expect(getFetch).toBeCalled();
+    expect(onInputChange).toBeCalled();
+  });
+});

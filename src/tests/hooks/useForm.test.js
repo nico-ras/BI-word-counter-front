@@ -59,27 +59,21 @@ describe("Pruebas sobre custom hook useForm", () => {
     });
   });
 
-  test('Debe hacer uso del rest', () => { 
-
+  test("Debe hacer uso del rest", () => {
     const taskName = "Tarea de prueba 01";
 
     //Montar el hook
 
-    const { result } = renderHook( () => useForm(initialForm) );
+    const { result } = renderHook(() => useForm(initialForm));
     const { onResetForm, onInputChange } = result.current;
 
     //debemos llamar al onInputChange  --> act, event..
 
-    act( () => {
-        onInputChange({ target: { name: "task_name", value: taskName } });
-        onResetForm();
-    })
+    act(() => {
+      onInputChange({ target: { name: "task_name", value: taskName } });
+      onResetForm();
+    });
 
-
-    
     expect(result.current.formState).toEqual(initialForm);
-
-
-  })
-
+  });
 });
